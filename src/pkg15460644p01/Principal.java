@@ -5,19 +5,23 @@
  */
 package pkg15460644p01;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author mario
  */
 public class Principal extends javax.swing.JFrame {
 
+    //Creación del objeto de la clase validaciones
+        Validaciones validaciones = new Validaciones();
     /**
-     * Creates new form Princi
+     * Creates new form Principal
      */
     public Principal() {
         initComponents();
     }
-
+        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -64,6 +68,11 @@ public class Principal extends javax.swing.JFrame {
 
         potencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         potencia.setToolTipText("¿A qué potencia la deseas elevar?");
+        potencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                potenciaKeyTyped(evt);
+            }
+        });
 
         jLabel1.setText("Inserción de cadena:");
 
@@ -201,8 +210,14 @@ public class Principal extends javax.swing.JFrame {
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Cierra la aplicación
+        JOptionPane.showMessageDialog(null, "Gracias por usar este programa\n Lo esperamos de vuelta pronto\n Versión 1.5.32\n\n Creado por: Mario Josue del Toro Morales\n No. Control: 15460647\n ");
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void potenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_potenciaKeyTyped
+        // Método que se activa al momento de pulsar una tecla dentro de este campo
+        validaciones.potencia(evt);
+    }//GEN-LAST:event_potenciaKeyTyped
 
     /**
      * @param args the command line arguments
