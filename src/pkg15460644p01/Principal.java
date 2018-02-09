@@ -5,23 +5,20 @@
  */
 package pkg15460644p01;
 
+import java.awt.event.KeyEvent;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author mario
+ * @author Mario Josue del Toro Morales
  */
 public class Principal extends javax.swing.JFrame {
-
-    //Creación del objeto de la clase validaciones
-        Validaciones validaciones = new Validaciones();
     /**
      * Creates new form Principal
      */
     public Principal() {
         initComponents();
     }
-        
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -38,24 +35,30 @@ public class Principal extends javax.swing.JFrame {
         potencia = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         cadena = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        elevacion = new javax.swing.JButton();
+        inversa = new javax.swing.JButton();
+        resultado = new javax.swing.JLabel();
+        Answer = new javax.swing.JLabel();
         jButton3 = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(91, 239, 145));
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel6.setText("15460644");
         jLabel6.setToolTipText("Número de Control");
 
-        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel7.setText("02 Práctica 1: Programa para cadena, potencia e inversa de cadenas");
         jLabel7.setToolTipText("Nombre de la práctica");
 
+        jButton4.setBackground(new java.awt.Color(255, 255, 102));
+        jButton4.setFont(new java.awt.Font("Times New Roman", 0, 18)); // NOI18N
         jButton4.setText("Limpiar");
         jButton4.setToolTipText("Borrará lo que se escribió en los cuadros de texto");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -64,36 +67,68 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel8.setText("Potencia");
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel8.setText("Potencia:");
 
         potencia.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         potencia.setToolTipText("¿A qué potencia la deseas elevar?");
         potencia.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                potenciaKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 potenciaKeyTyped(evt);
             }
         });
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         jLabel1.setText("Inserción de cadena:");
 
         cadena.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         cadena.setToolTipText("Ingresa Cadena");
         cadena.setName("cadena"); // NOI18N
+        cadena.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                cadenaKeyReleased(evt);
+            }
+        });
 
-        jButton1.setText("Potencia");
-        jButton1.setToolTipText("Saca la Potencia de la cadena");
-        jButton1.setName("potencia"); // NOI18N
+        elevacion.setBackground(new java.awt.Color(102, 255, 204));
+        elevacion.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        elevacion.setText("Potencia");
+        elevacion.setToolTipText("Saca la Potencia de la cadena");
+        elevacion.setEnabled(false);
+        elevacion.setName("potencia"); // NOI18N
+        elevacion.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                elevacionActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Inversa");
-        jButton2.setToolTipText("Saca la Inversa de la cadena");
-        jButton2.setName("inversa"); // NOI18N
+        inversa.setBackground(new java.awt.Color(102, 255, 102));
+        inversa.setFont(new java.awt.Font("Times New Roman", 0, 14)); // NOI18N
+        inversa.setText("Inversa");
+        inversa.setToolTipText("Saca la Inversa de la cadena");
+        inversa.setEnabled(false);
+        inversa.setName("inversa"); // NOI18N
+        inversa.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inversaActionPerformed(evt);
+            }
+        });
 
-        jLabel2.setText("Resultado:");
-        jLabel2.setName("resultado"); // NOI18N
+        resultado.setFont(new java.awt.Font("Microsoft Sans Serif", 3, 14)); // NOI18N
+        resultado.setForeground(new java.awt.Color(255, 0, 0));
+        resultado.setText("Resultado:");
+        resultado.setName("resultado"); // NOI18N
 
-        jLabel3.setText("jLabel3");
-        jLabel3.setToolTipText("Resultado obtenido");
+        Answer.setFont(new java.awt.Font("Arial", 2, 12)); // NOI18N
+        Answer.setToolTipText("Resultado obtenido");
+        Answer.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        Answer.setName(""); // NOI18N
 
+        jButton3.setBackground(new java.awt.Color(255, 102, 102));
+        jButton3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jButton3.setText("Salir");
         jButton3.setToolTipText("Termina la aplicación");
         jButton3.setName("salir"); // NOI18N
@@ -103,16 +138,26 @@ public class Principal extends javax.swing.JFrame {
             }
         });
 
-        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 24)); // NOI18N
+        jLabel4.setFont(new java.awt.Font("Tahoma", 3, 36)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(245, 91, 91));
         jLabel4.setText("Lenguajes y Autómatas I");
         jLabel4.setToolTipText("Nombre de la materia");
 
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Mario Josué Del Toro Morales ");
         jLabel5.setToolTipText("Autor");
 
+        jLabel9.setFont(new java.awt.Font("Tahoma", 2, 14)); // NOI18N
         jLabel9.setText("Este programa tiene como función el de sacar la potencia e inversa de una cadena");
         jLabel9.setToolTipText("Descripción de programa");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel2.setText("Autor:");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel3.setText("Número de Control");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -121,46 +166,54 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel8)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(19, 19, 19)
-                                .addComponent(jButton1)))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cadena, javax.swing.GroupLayout.DEFAULT_SIZE, 145, Short.MAX_VALUE)
-                                    .addComponent(potencia))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jButton4))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(33, 33, 33)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jButton3)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabel2)
-                                .addGap(129, 129, 129))))
-                    .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(jLabel7, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel6))))
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel3))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(98, 98, 98)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 309, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jLabel9)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel7)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(68, 68, 68)
+                                        .addComponent(elevacion)
+                                        .addGap(126, 126, 126)
+                                        .addComponent(inversa, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(80, 80, 80)
+                                        .addComponent(jButton4))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(43, 43, 43)
+                                        .addComponent(jLabel1)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(cadena, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(38, 38, 38)
+                                        .addComponent(jLabel8)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(potencia, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(96, 96, 96)
+                                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(83, 83, 83)
+                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(42, 42, 42)
+                                .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(Answer))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 38, Short.MAX_VALUE)))
+                .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel5)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel6)
+                .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -171,32 +224,32 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel7)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel9)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel1)
-                            .addComponent(cadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel8)
-                            .addComponent(potencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButton4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(jLabel1)
+                    .addComponent(cadena, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(potencia, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(elevacion, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inversa, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(42, 42, 42)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(resultado)
+                    .addComponent(Answer))
+                .addGap(20, 20, 20)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(jLabel2)
                     .addComponent(jLabel3))
-                .addGap(18, 18, 18)
-                .addComponent(jButton3)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(jLabel6))
-                .addContainerGap())
+                .addGap(0, 0, 0))
         );
 
         pack();
@@ -206,18 +259,83 @@ public class Principal extends javax.swing.JFrame {
         // Limpia lo que halla en los textbox
         cadena.setText("");
         potencia.setText("");
+        //Deshabilitar botones que proceden a hacer los algoritmos
+        elevacion.setEnabled(false);
+        inversa.setEnabled(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // Cierra la aplicación
-        JOptionPane.showMessageDialog(null, "Gracias por usar este programa\n Lo esperamos de vuelta pronto\n Versión 1.5.32\n\n Creado por: Mario Josue del Toro Morales\n No. Control: 15460647\n ");
+        JOptionPane.showMessageDialog(null, "Gracias por usar este programa\n Lo esperamos de vuelta pronto\n Versión 1.5.32\n\n Creado por: Mario Josue del Toro Morales\n No. Control: 15460647\n ", "AGRADECIMIENTO", JOptionPane.INFORMATION_MESSAGE);
         System.exit(0);
     }//GEN-LAST:event_jButton3ActionPerformed
-
+    
+    //Método para validar que solo se ingresen números en el campo de Potencia
     private void potenciaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_potenciaKeyTyped
-        // Método que se activa al momento de pulsar una tecla dentro de este campo
-        validaciones.potencia(evt);
+        // Método que se activa al momento de pulsar una tecla dentro de este campo        
+        if (!Character.isDigit(evt.getKeyChar())) { //Revisión si no es digito, se elimina la tecla pulsada
+            evt.consume(); //acción que elimina la tecla pulsada
+        }
     }//GEN-LAST:event_potenciaKeyTyped
+
+    //Método recursivo para la obtención de la potencia de una cadena.
+    public static String Potencia(String cadena, int potencia){
+        if (potencia == 1) { //Cuando el método llega a 1
+            return cadena; //Regresa la cadena tal cuál
+        } else {
+            potencia--; //Se disminuye la potencia
+            return cadena + Potencia (cadena, potencia); //Concatena la cadena original con lo que sale de la recursividad.
+        }
+    }
+    private void elevacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevacionActionPerformed
+        // Método que se deesencadena tras pulsar el boton de Potencia de la interfaz principal
+        if (Integer.parseInt(potencia.getText()) == 0) { //Si se coloca una potencia de 0, colocará la cadena vacía
+            Answer.setText("λ");
+        } else { //Si no se coloca 0, mandará a llamar al método recursivo
+            Answer.setText(Potencia(cadena.getText(), Integer.parseInt(potencia.getText())));//Asignación del texto de la etiqueta del resultado del método recusrsivo
+        }
+    }//GEN-LAST:event_elevacionActionPerformed
+
+    private void cadenaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_cadenaKeyReleased
+        // Método que habilita el botón de Inversa
+        if (cadena.getText().length() != 0) {
+            elevacion.setEnabled(potencia.getText().length() != 0); //Habilita el botón de potencia
+            
+            if (cadena.getText().length() != 0) {
+                inversa.setEnabled(true); //Habilita el botón de inversa
+            } else {
+                inversa.setEnabled(false); // Deshabilita el botón de inversa
+            }            
+        }        
+    }//GEN-LAST:event_cadenaKeyReleased
+
+    private void potenciaKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_potenciaKeyReleased
+        // Método que habilita el botón de Potencia
+        
+        if (cadena.getText().length() != 0) {
+            elevacion.setEnabled(potencia.getText().length() != 0); //Habilita el botón de potencia
+            
+            if (cadena.getText().length() != 0) {
+                inversa.setEnabled(true); //Habilita el botón de inversa
+            } else {
+                inversa.setEnabled(false); // Deshabilita el botón de inversa
+            }            
+        }
+    }//GEN-LAST:event_potenciaKeyReleased
+
+    //Método recursivo para sacar la inversa de una cadena
+    public static String Inversa(String cadena, int longitud){        
+        if (longitud == 1) { //Si la longitud llega al inicio de la cadena, se retorna el primer caracter de la cadena
+            return Character.toString(cadena.charAt(0)); //retorno del primer caracter de la cadena
+        } else {
+            longitud--; //Resta de la longitud que se tiene de la cadena original
+            return Character.toString(cadena.charAt(longitud)) + Inversa(cadena, longitud); //fijación de la letra de la cadena y llamado de l método recursivo
+        }
+    }
+    private void inversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inversaActionPerformed
+        // Método para sacar la inversa de una cadena
+        Answer.setText(Inversa(cadena.getText(), cadena.getText().length())); //Se asigna en la etiqueta correspondiente el resultado del mpetodo recursivo
+    }//GEN-LAST:event_inversaActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,9 +374,10 @@ public class Principal extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Answer;
     private javax.swing.JTextField cadena;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton elevacion;
+    private javax.swing.JButton inversa;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -271,5 +390,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JTextField potencia;
+    private javax.swing.JLabel resultado;
     // End of variables declaration//GEN-END:variables
 }
