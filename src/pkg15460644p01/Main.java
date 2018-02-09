@@ -1,5 +1,6 @@
 /*
 * Este programa fue hecho por Mario Josue del Toro Morales
+* con Número de Control 15460644
 * Estudiante del sexto semestre de la carrera de Ingeniería en Sistemas Computacionales
 * del Instituto Tecnológico de Colima
 * Materia de Lenguajes y Autómatas I
