@@ -22,6 +22,7 @@ public class Principal extends javax.swing.JFrame {
      */
     public Principal() {
         initComponents();
+        this.setLocationRelativeTo(null);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -32,6 +33,7 @@ public class Principal extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jLabel14 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         jButton4 = new javax.swing.JButton();
@@ -55,6 +57,11 @@ public class Principal extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        Final = new javax.swing.JTextField();
+
+        jLabel14.setText("jLabel14");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(91, 239, 145));
@@ -131,8 +138,13 @@ public class Principal extends javax.swing.JFrame {
                 inversaActionPerformed(evt);
             }
         });
+        inversa.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                inversaKeyTyped(evt);
+            }
+        });
 
-        resultado.setFont(new java.awt.Font("Microsoft Sans Serif", 3, 14)); // NOI18N
+        resultado.setFont(new java.awt.Font("Microsoft Sans Serif", 3, 18)); // NOI18N
         resultado.setForeground(new java.awt.Color(255, 0, 0));
         resultado.setText("Resultado:");
         resultado.setName("resultado"); // NOI18N
@@ -196,6 +208,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(207, 30, 67));
         jLabel11.setText("Ingeniería en Sistemas Computacionales");
+        jLabel11.setToolTipText("Carrera que se está cursando");
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel12.setText("Sexto");
@@ -203,6 +216,17 @@ public class Principal extends javax.swing.JFrame {
         jLabel13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 204));
         jLabel13.setText("Semestre:");
+
+        jLabel15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel15.setForeground(new java.awt.Color(0, 0, 204));
+        jLabel15.setText("Docente:");
+
+        jLabel16.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel16.setText("Ma. Elena Martínez Durán");
+
+        Final.setEditable(false);
+        Final.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
+        Final.setToolTipText("Resultado final");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -227,9 +251,28 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addContainerGap())))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jLabel10)
+                .addGap(122, 122, 122))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(99, 99, 99))
             .addGroup(layout.createSequentialGroup()
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(201, 201, 201)
+                                .addComponent(jLabel15)
+                                .addGap(18, 18, 18)
+                                .addComponent(jLabel16))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(141, 141, 141)
+                                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap())
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -258,28 +301,20 @@ public class Principal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 508, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(77, 77, 77))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jLabel10)
-                .addGap(122, 122, 122))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 471, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(99, 99, 99))
+                        .addGap(77, 77, 77))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(Answer))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(Final)
+                                .addGap(43, 43, 43))))))
             .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(85, 85, 85)
-                        .addComponent(resultado, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Answer))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(141, 141, 141)
-                        .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(148, 148, 148)
-                        .addComponent(jLabel11)))
+                .addGap(148, 148, 148)
+                .addComponent(jLabel11)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -289,9 +324,9 @@ public class Principal extends javax.swing.JFrame {
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel11)
-                .addGap(18, 18, 18)
+                .addGap(14, 14, 14)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel9)
@@ -310,17 +345,24 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(34, 34, 34)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(resultado)
-                    .addComponent(Answer))
-                .addGap(20, 20, 20)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 59, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(Answer)
+                        .addComponent(Final)))
                 .addGap(18, 18, 18)
+                .addComponent(jButton3)
+                .addGap(12, 12, 12)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel13))
+                    .addComponent(jLabel16)
+                    .addComponent(jLabel15))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
@@ -336,12 +378,12 @@ public class Principal extends javax.swing.JFrame {
         // Limpia lo que halla en los textbox
         cadena.setText("");
         potencia.setText("");
-        Answer.setText("");
+        Final.setText("");
         //Deshabilitar botones que proceden a hacer los algoritmos
         elevacion.setEnabled(false);
         inversa.setEnabled(false);
         //Ocultar componentes para que este como al inicio
-        Answer.setVisible(false);
+        Final.setVisible(false);
         resultado.setVisible(false);
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -371,12 +413,12 @@ public class Principal extends javax.swing.JFrame {
     private void elevacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_elevacionActionPerformed
         // Método que se deesencadena tras pulsar el boton de Potencia de la interfaz principal
         if (Integer.parseInt(potencia.getText()) == 0) { //Si se coloca una potencia de 0, colocará la cadena vacía
-            Answer.setText("λ");
+            Final.setText("λ");
         } else { //Si no se coloca 0, mandará a llamar al método recursivo
-            Answer.setText(Potencia(cadena.getText(), Integer.parseInt(potencia.getText())));//Asignación del texto de la etiqueta del resultado del método recusrsivo
+            Final.setText(Potencia(cadena.getText(), Integer.parseInt(potencia.getText())));//Asignación del texto de la etiqueta del resultado del método recusrsivo
         }
         //Hacer visibles componentes para que se pueda observar el resultado
-        Answer.setVisible(true);
+        Final.setVisible(true);
         resultado.setVisible(true);
     }//GEN-LAST:event_elevacionActionPerformed
 
@@ -391,8 +433,12 @@ public class Principal extends javax.swing.JFrame {
                 inversa.setEnabled(false); // Deshabilita el botón de inversa
             }            
         } else {
+            //Deshabilita los botones si no hay nada escrito
             elevacion.setEnabled(false);
             inversa.setEnabled(false);
+            //Deshabilita las etiquetas del resultado si la cadena es igual a 0
+            Final.setVisible(false);
+            resultado.setVisible(false);
         }     
     }//GEN-LAST:event_cadenaKeyReleased
 
@@ -408,8 +454,12 @@ public class Principal extends javax.swing.JFrame {
                 inversa.setEnabled(false); // Deshabilita el botón de inversa
             }            
         }else {
+            //Deshabilita los botones si no hay nada escrito
             elevacion.setEnabled(false);
             inversa.setEnabled(false);
+            //Deshabilita las etiquetas del resultado si la cadena es igual a 0
+            Final.setVisible(false);
+            resultado.setVisible(false);
         }    
     }//GEN-LAST:event_potenciaKeyReleased
 
@@ -424,14 +474,15 @@ public class Principal extends javax.swing.JFrame {
     }
     private void inversaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inversaActionPerformed
         // Método para sacar la inversa de una cadena
-        Answer.setText(Inversa(cadena.getText(), cadena.getText().length())); //Se asigna en la etiqueta correspondiente el resultado del mpetodo recursivo
+        Final.setText(Inversa(cadena.getText(), cadena.getText().length())); //Se asigna en la etiqueta correspondiente el resultado del mpetodo recursivo
         //Hacer visibles componentes para que se pueda observar el resultado
-        Answer.setVisible(true);
+        Final.setVisible(true);
         resultado.setVisible(true);
     }//GEN-LAST:event_inversaActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         // Método que se ejecuta al cargar la pantalla
+        Final.setVisible(false);
         Answer.setVisible(false);
         resultado.setVisible(false);
     }//GEN-LAST:event_formWindowOpened
@@ -445,6 +496,10 @@ public class Principal extends javax.swing.JFrame {
         //Despliega información sobre la función de Inversa
         JOptionPane.showMessageDialog(null, "Dentro de la bibliografía de Dean Kelley menciona que\n“la inversa o transpuesta de una palabra w es\nla imagen refleja de w. Por ejemplo, si w = “able”\nentonces su inversa es “elba”. Para denotar\nla inversa de w se usa w' ”, una de las formas\nde hacerlo dentro de la programación es con ayuda\nde la recursividad", "Información de Inversa", JOptionPane.INFORMATION_MESSAGE);
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void inversaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_inversaKeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inversaKeyTyped
 
     /**
      * @param args the command line arguments
@@ -484,6 +539,7 @@ public class Principal extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Answer;
+    private javax.swing.JTextField Final;
     private javax.swing.JTextField cadena;
     private javax.swing.JButton elevacion;
     private javax.swing.JButton inversa;
@@ -496,6 +552,9 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
